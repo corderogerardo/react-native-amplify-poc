@@ -29,11 +29,6 @@ type Establishment
     fields: ["ownerId", "id"]
     queryField: "getEstablishmentsByUser"
   )
-  @key(
-    name: "byGps"
-    fields: ["gps", "id"]
-    queryField: "getEstablishmentsByGps"
-  )
   @searchable {
   id: ID!
   ownerId: ID!
