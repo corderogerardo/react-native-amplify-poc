@@ -6,12 +6,38 @@ type Todo @model @auth(rules: [{ allow: public, provider: iam }]) {
 
 type Establishment
   @model
-  @auth(rules: [{ allow: public, provider: iam }])
+  @auth(
+    rules: [
+      { allow: public, provider: iam }
+      {
+        allow: owner
+        ownerField: "ownerId"
+        identityClaim: "sub"
+        operations: [create, update, delete, read]
+      }
+      {
+        allow: groups
+        groups: ["admin"]
+        operations: [create, update, delete, read]
+      }
+      { allow: private, provider: userPools }
+    ]
+  )
   @key(fields: ["ownerId", "id"])
+  @key(
+    name: "byId"
+    fields: ["ownerId", "id"]
+    queryField: "getEstablishmentsByUser"
+  )
+  @key(
+    name: "byGps"
+    fields: ["gps", "id"]
+    queryField: "getEstablishmentsByGps"
+  )
   @searchable {
   id: ID!
   ownerId: ID!
-  owner: User
+  owner: User @connection(fields: ["ownerId"])
   name: String!
   gps: GPS
   street: String
@@ -25,7 +51,7 @@ type Establishment
   phoneNumber: String
   likeCount: Int
   # averageRating: Float
-  reviews: [Review]
+  reviews: [Review] @connection(fields: ["id"])
   userLikes: [EstablishmentLike] @connection(fields: ["id"])
 }
 
@@ -139,7 +165,7 @@ type User
   gender: String
   description: String
   # photo: String
-  ownerOf: [Establishment]
+  ownerOf: [Establishment] @connection(fields: ["id"])
   createdAt: AWSDateTime
   lastUpdated: AWSDateTime
   # profile: Profile
