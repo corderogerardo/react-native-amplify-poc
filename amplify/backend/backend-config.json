@@ -16,12 +16,6 @@
         }
       ]
     },
-    "restaurantReviewAuth": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    },
     "swimspotAuth": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
@@ -30,55 +24,24 @@
     }
   },
   "api": {
-    "restaurantreviewapp": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authrestaurantReviewAuth"
-            }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
-        }
-      }
-    },
     "swimspot": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authswimspotAuth"
-            }
+            "authenticationType": "AWS_IAM"
           },
-          "additionalAuthenticationProviders": []
-        }
-      }
-    }
-  },
-  "function": {
-    "postConfirmation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "restaurantreviewapp",
-          "attributes": [
-            "GraphQLAPIIdOutput"
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authswimspotAuth"
+              }
+            }
           ]
         }
-      ]
+      }
     }
   }
 }

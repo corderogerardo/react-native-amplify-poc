@@ -41,15 +41,15 @@
     },
     "Resources": {
     
-        "adminGroup": {
+        "swimspotUserPoolGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "admin",
+              "GroupName" : "swimspotUserPool",
               "Precedence" : 1,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "adminGroupRole",
+                    "swimspotUserPoolGroupRole",
                     "Arn"
                 ]
               },
@@ -60,7 +60,7 @@
             }
         },
         
-        "adminGroupRole": {
+        "swimspotUserPoolGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -70,115 +70,7 @@
                           {
                             "Ref": "authswimspotAuthUserPoolId"
                           },
-                          "-adminGroupRole"
-                        ]
-                    ]
-                },
-                "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Sid": "",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Federated": "cognito-identity.amazonaws.com"
-                            },
-                            "Action": "sts:AssumeRoleWithWebIdentity",
-                            "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authswimspotAuthIdentityPoolId"}},
-                              "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-     
-    
-        "businessGroup": {
-          "Type" : "AWS::Cognito::UserPoolGroup",
-          "Properties" : {
-              "GroupName" : "business",
-              "Precedence" : 2,
-              
-              "RoleArn" : {
-                "Fn::GetAtt": [
-                    "businessGroupRole",
-                    "Arn"
-                ]
-              },
-              
-              "UserPoolId" : {
-                "Ref": "authswimspotAuthUserPoolId"
-              }
-            }
-        },
-        
-        "businessGroupRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-                "RoleName":{
-                    "Fn::Join": [
-                        "",
-                        [
-                          {
-                            "Ref": "authswimspotAuthUserPoolId"
-                          },
-                          "-businessGroupRole"
-                        ]
-                    ]
-                },
-                "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Sid": "",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Federated": "cognito-identity.amazonaws.com"
-                            },
-                            "Action": "sts:AssumeRoleWithWebIdentity",
-                            "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authswimspotAuthIdentityPoolId"}},
-                              "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-     
-    
-        "usersGroup": {
-          "Type" : "AWS::Cognito::UserPoolGroup",
-          "Properties" : {
-              "GroupName" : "users",
-              "Precedence" : 3,
-              
-              "RoleArn" : {
-                "Fn::GetAtt": [
-                    "usersGroupRole",
-                    "Arn"
-                ]
-              },
-              
-              "UserPoolId" : {
-                "Ref": "authswimspotAuthUserPoolId"
-              }
-            }
-        },
-        
-        "usersGroupRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-                "RoleName":{
-                    "Fn::Join": [
-                        "",
-                        [
-                          {
-                            "Ref": "authswimspotAuthUserPoolId"
-                          },
-                          "-usersGroupRole"
+                          "-swimspotUserPoolGroupRole"
                         ]
                     ]
                 },
@@ -405,32 +297,10 @@
     
     "Outputs": {
       
-        "adminGroupRole": {
+        "swimspotUserPoolGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "adminGroupRole",
-                    "Arn"
-                ]
-            }
-        
-        },
-        
-      
-        "businessGroupRole": {
-            "Value": {
-                "Fn::GetAtt": [
-                    "businessGroupRole",
-                    "Arn"
-                ]
-            }
-        
-        },
-        
-      
-        "usersGroupRole": {
-            "Value": {
-                "Fn::GetAtt": [
-                    "usersGroupRole",
+                    "swimspotUserPoolGroupRole",
                     "Arn"
                 ]
             }

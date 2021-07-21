@@ -1,66 +1,84 @@
 {
-  "identityPoolName": "swimspotIdentityPool",
-  "allowUnauthenticatedIdentities": true,
-  "resourceNameTruncated": "swimspada6e6f8",
-  "userPoolName": "swimspotUserPool",
-  "mfaConfiguration": "OPTIONAL",
-  "mfaTypes": ["SMS Text Message"],
-  "smsAuthenticationMessage": "Your SwimSpot authentication code is {####}",
-  "smsVerificationMessage": "Your verification code is {####}",
-  "emailVerificationSubject": "Your SwimSpot authentication code is {####}",
-  "emailVerificationMessage": "Your SwimSpot authentication code is {####}",
-  "defaultPasswordPolicy": false,
-  "passwordPolicyMinLength": 8,
-  "passwordPolicyCharacters": [],
-  "requiredAttributes": ["email"],
-  "userpoolClientGenerateSecret": false,
-  "userpoolClientRefreshTokenValidity": "30",
-  "userpoolClientWriteAttributes": [
-    "address",
-    "birthdate",
-    "family_name",
-    "given_name",
-    "name",
-    "picture",
-    "profile",
-    "email"
-  ],
-  "userpoolClientReadAttributes": [
-    "email",
-    "family_name",
-    "given_name",
-    "name",
-    "phone_number",
-    "picture",
-    "profile",
-    "email_verified",
-    "phone_number_verified"
-  ],
-  "userpoolClientLambdaRole": "swimspada6e6f8_userpoolclient_lambda_role",
-  "userpoolClientSetAttributes": true,
-  "sharedId": "ada6e6f8",
-  "resourceName": "swimspotAuth",
-  "authSelections": "identityPoolAndUserPool",
-  "authRoleArn": {
-    "Fn::GetAtt": ["AuthRole", "Arn"]
-  },
-  "unauthRoleArn": {
-    "Fn::GetAtt": ["UnauthRole", "Arn"]
-  },
-  "useDefault": "manual",
-  "thirdPartyAuth": false,
-  "usernameAttributes": ["email, phone_number"],
-  "userPoolGroups": true,
-  "adminQueries": false,
-  "triggers": "{}",
-  "hostedUI": false,
-  "userPoolGroupList": ["admin", "business", "users"],
-  "serviceName": "Cognito",
-  "usernameCaseSensitive": false,
-  "parentStack": {
-    "Ref": "AWS::StackId"
-  },
-  "breakCircularDependency": true,
-  "permissions": [],
-  "dependsOn": []
+    "identityPoolName": "swimspotIdentityPool",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "swimspada6e6f8",
+    "userPoolName": "swimspotUserPool",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OPTIONAL",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your SwimSpot authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your SwimSpot authentication code is {####}",
+    "emailVerificationMessage": "Your SwimSpot authentication code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "30",
+    "userpoolClientWriteAttributes": [
+        "address",
+        "birthdate",
+        "family_name",
+        "given_name",
+        "name",
+        "picture",
+        "profile",
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email",
+        "family_name",
+        "given_name",
+        "name",
+        "phone_number",
+        "picture",
+        "profile",
+        "email_verified",
+        "phone_number_verified"
+    ],
+    "userpoolClientLambdaRole": "swimspada6e6f8_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "ada6e6f8",
+    "resourceName": "swimspotAuth",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "manual",
+    "thirdPartyAuth": false,
+    "usernameAttributes": [
+        "email, phone_number"
+    ],
+    "userPoolGroups": true,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [
+        "swimspotUserPool"
+    ],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "breakCircularDependency": true,
+    "permissions": [],
+    "dependsOn": [],
+    "authProviders": []
 }
