@@ -2,57 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    createTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    updateTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
-  ) {
-    deleteTodo(input: $input, condition: $condition) {
-      id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createEstablishmentFollow = /* GraphQL */ `
   mutation CreateEstablishmentFollow(
     $input: CreateEstablishmentFollowInput!
@@ -88,15 +37,15 @@ export const createEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -135,15 +84,15 @@ export const createEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -186,15 +135,15 @@ export const updateEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -233,15 +182,15 @@ export const updateEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -284,15 +233,15 @@ export const deleteEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -331,15 +280,15 @@ export const deleteEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -380,15 +329,15 @@ export const createUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -413,15 +362,15 @@ export const createUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -462,15 +411,15 @@ export const updateUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -495,15 +444,15 @@ export const updateUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -544,15 +493,15 @@ export const deleteUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -577,15 +526,15 @@ export const deleteUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -633,6 +582,11 @@ export const createEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       userLikes {
         items {
           establishmentId
@@ -647,11 +601,6 @@ export const createEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       owner {
         pk_id
         id
@@ -672,15 +621,15 @@ export const createEstablishment = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -728,6 +677,11 @@ export const updateEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       userLikes {
         items {
           establishmentId
@@ -742,11 +696,6 @@ export const updateEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       owner {
         pk_id
         id
@@ -767,15 +716,15 @@ export const updateEstablishment = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -823,6 +772,11 @@ export const deleteEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       userLikes {
         items {
           establishmentId
@@ -837,11 +791,6 @@ export const deleteEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       owner {
         pk_id
         id
@@ -862,15 +811,15 @@ export const deleteEstablishment = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -913,15 +862,15 @@ export const createEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -961,15 +910,15 @@ export const createEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1012,15 +961,15 @@ export const updateEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1060,15 +1009,15 @@ export const updateEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1111,15 +1060,15 @@ export const deleteEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1159,15 +1108,15 @@ export const deleteEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1210,15 +1159,15 @@ export const createCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1258,15 +1207,15 @@ export const createCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1309,15 +1258,15 @@ export const updateCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1357,15 +1306,15 @@ export const updateCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1408,15 +1357,15 @@ export const deleteCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1456,15 +1405,15 @@ export const deleteCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1510,15 +1459,15 @@ export const createReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1558,15 +1507,15 @@ export const createReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1612,15 +1561,15 @@ export const updateReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1660,15 +1609,15 @@ export const updateReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1714,15 +1663,15 @@ export const deleteReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1762,15 +1711,15 @@ export const deleteReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1821,20 +1770,6 @@ export const updateUser = /* GraphQL */ `
         nextToken
         startedAt
       }
-      establishmentLikes {
-        items {
-          establishmentId
-          createdAt
-          establishmentName
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-          userId
-        }
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
@@ -1859,6 +1794,20 @@ export const updateUser = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      establishmentLikes {
+        items {
+          establishmentId
+          createdAt
+          establishmentName
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+          userId
         }
         nextToken
         startedAt
@@ -1909,20 +1858,6 @@ export const deleteUser = /* GraphQL */ `
         nextToken
         startedAt
       }
-      establishmentLikes {
-        items {
-          establishmentId
-          createdAt
-          establishmentName
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-          userId
-        }
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
@@ -1947,6 +1882,20 @@ export const deleteUser = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      establishmentLikes {
+        items {
+          establishmentId
+          createdAt
+          establishmentName
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+          userId
         }
         nextToken
         startedAt

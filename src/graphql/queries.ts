@@ -3,7 +3,7 @@
 // this is an auto generated file. This will be overwritten
 
 export const findEstablishments = /* GraphQL */ `
-  query FindEstablishments($input: findEstablishmentsInput!) {
+  query FindEstablishments($input: FindEstablishmentsInput!) {
     findEstablishments(input: $input) {
       items {
         id
@@ -27,15 +27,15 @@ export const findEstablishments = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -56,135 +56,6 @@ export const findEstablishments = /* GraphQL */ `
       }
       nextToken
       total
-    }
-  }
-`;
-export const syncTodos = /* GraphQL */ `
-  query SyncTodos(
-    $filter: ModelTodoFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncTodos(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        description
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getTodo = /* GraphQL */ `
-  query GetTodo($id: ID!) {
-    getTodo(id: $id) {
-      id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncEstablishmentLikes = /* GraphQL */ `
-  query SyncEstablishmentLikes(
-    $filter: ModelEstablishmentLikeFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncEstablishmentLikes(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        establishmentId
-        createdAt
-        establishmentName
-        _version
-        _deleted
-        _lastChangedAt
-        updatedAt
-        establishment {
-          id
-          ownerId
-          name
-          street
-          city
-          state
-          zipcode
-          neighborhood
-          phone
-          email
-          placeID
-          phoneNumber
-          likeCount
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        userId
-        user {
-          pk_id
-          id
-          firstName
-          lastName
-          userName
-          birthdate
-          gender
-          description
-          createdAt
-          lastUpdated
-          profilePicture
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-        }
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -349,15 +220,15 @@ export const getEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -396,15 +267,15 @@ export const getEstablishmentFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -639,15 +510,15 @@ export const getUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -672,15 +543,15 @@ export const getUserFollow = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -731,75 +602,6 @@ export const listUserFollows = /* GraphQL */ `
           updatedAt
         }
         userFollowed {
-          pk_id
-          id
-          firstName
-          lastName
-          userName
-          birthdate
-          gender
-          description
-          createdAt
-          lastUpdated
-          profilePicture
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-        }
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getEstablishmentLikesByUser = /* GraphQL */ `
-  query GetEstablishmentLikesByUser(
-    $userId: ID
-    $createdAt: ModelStringKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelEstablishmentLikeFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    getEstablishmentLikesByUser(
-      userId: $userId
-      createdAt: $createdAt
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        establishmentId
-        createdAt
-        establishmentName
-        _version
-        _deleted
-        _lastChangedAt
-        updatedAt
-        establishment {
-          id
-          ownerId
-          name
-          street
-          city
-          state
-          zipcode
-          neighborhood
-          phone
-          email
-          placeID
-          phoneNumber
-          likeCount
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        userId
-        user {
           pk_id
           id
           firstName
@@ -1133,6 +935,11 @@ export const getEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       userLikes {
         items {
           establishmentId
@@ -1147,11 +954,6 @@ export const getEstablishment = /* GraphQL */ `
         nextToken
         startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       owner {
         pk_id
         id
@@ -1172,15 +974,15 @@ export const getEstablishment = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1227,86 +1029,15 @@ export const listEstablishments = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
-        owner {
-          pk_id
-          id
-          firstName
-          lastName
-          userName
-          birthdate
-          gender
-          description
-          createdAt
-          lastUpdated
-          profilePicture
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-        }
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getEstablishmentsByUser = /* GraphQL */ `
-  query GetEstablishmentsByUser(
-    $ownerId: ID
-    $id: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelEstablishmentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    getEstablishmentsByUser(
-      ownerId: $ownerId
-      id: $id
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        ownerId
-        name
-        gps {
-          lon
-          lat
-        }
-        street
-        city
-        state
-        zipcode
-        neighborhood
-        phone
-        email
-        placeID
-        phoneNumber
-        likeCount
-        reviews {
-          nextToken
-          startedAt
-        }
         userLikes {
           nextToken
           startedAt
         }
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         owner {
           pk_id
           id
@@ -1367,15 +1098,15 @@ export const searchEstablishments = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1434,16 +1165,150 @@ export const syncEstablishments = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
+          pk_id
+          id
+          firstName
+          lastName
+          userName
+          birthdate
+          gender
+          description
+          createdAt
+          lastUpdated
+          profilePicture
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getEstablishmentLikesByUser = /* GraphQL */ `
+  query GetEstablishmentLikesByUser(
+    $userId: ID
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelEstablishmentLikeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getEstablishmentLikesByUser(
+      userId: $userId
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        establishmentId
+        createdAt
+        establishmentName
+        _version
+        _deleted
+        _lastChangedAt
+        updatedAt
+        establishment {
+          id
+          ownerId
+          name
+          street
+          city
+          state
+          zipcode
+          neighborhood
+          phone
+          email
+          placeID
+          phoneNumber
+          likeCount
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        userId
+        user {
+          pk_id
+          id
+          firstName
+          lastName
+          userName
+          birthdate
+          gender
+          description
+          createdAt
+          lastUpdated
+          profilePicture
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEstablishmentLikes = /* GraphQL */ `
+  query SyncEstablishmentLikes(
+    $filter: ModelEstablishmentLikeFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEstablishmentLikes(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        establishmentId
+        createdAt
+        establishmentName
+        _version
+        _deleted
+        _lastChangedAt
+        updatedAt
+        establishment {
+          id
+          ownerId
+          name
+          street
+          city
+          state
+          zipcode
+          neighborhood
+          phone
+          email
+          placeID
+          phoneNumber
+          likeCount
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        userId
+        user {
           pk_id
           id
           firstName
@@ -1501,15 +1366,15 @@ export const getEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1549,15 +1414,15 @@ export const getEstablishmentLike = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1666,15 +1531,15 @@ export const getCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1714,15 +1579,15 @@ export const getCheckIn = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -1834,15 +1699,15 @@ export const getReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        userLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        userLikes {
+          nextToken
+          startedAt
+        }
         owner {
           pk_id
           id
@@ -1882,15 +1747,15 @@ export const getReview = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -2010,20 +1875,6 @@ export const getUser = /* GraphQL */ `
         nextToken
         startedAt
       }
-      establishmentLikes {
-        items {
-          establishmentId
-          createdAt
-          establishmentName
-          _version
-          _deleted
-          _lastChangedAt
-          updatedAt
-          userId
-        }
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
@@ -2048,6 +1899,20 @@ export const getUser = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      establishmentLikes {
+        items {
+          establishmentId
+          createdAt
+          establishmentName
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+          userId
         }
         nextToken
         startedAt
@@ -2092,15 +1957,15 @@ export const listUsers = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }
@@ -2143,15 +2008,15 @@ export const syncUsers = /* GraphQL */ `
           nextToken
           startedAt
         }
-        establishmentLikes {
-          nextToken
-          startedAt
-        }
         _version
         _deleted
         _lastChangedAt
         updatedAt
         ownerOf {
+          nextToken
+          startedAt
+        }
+        establishmentLikes {
           nextToken
           startedAt
         }

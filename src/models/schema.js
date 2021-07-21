@@ -17,6 +17,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "owner": {
+                    "name": "owner",
+                    "isArray": false,
+                    "type": {
+                        "model": "User"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_ONE",
+                        "associatedWith": "pk_id",
+                        "targetName": "id"
+                    }
+                },
                 "name": {
                     "name": "name",
                     "isArray": false,
@@ -103,6 +117,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "reviews": {
+                    "name": "reviews",
+                    "isArray": true,
+                    "type": {
+                        "model": "Review"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "establishment"
+                    }
+                },
                 "userLikes": {
                     "name": "userLikes",
                     "isArray": true,
@@ -169,10 +197,8 @@ export const schema = {
                                 ]
                             },
                             {
+                                "allow": "private",
                                 "provider": "userPools",
-                                "ownerField": "ownerId",
-                                "allow": "owner",
-                                "identityClaim": "sub",
                                 "operations": [
                                     "create",
                                     "update",
@@ -243,6 +269,20 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "ownerOf": {
+                    "name": "ownerOf",
+                    "isArray": true,
+                    "type": {
+                        "model": "Establishment"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "ownerId"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -567,6 +607,16 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
+                            },
+                            {
+                                "allow": "private",
+                                "provider": "userPools",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
                             }
                         ]
                     }
@@ -720,73 +770,6 @@ export const schema = {
                 }
             ]
         },
-        "Todo": {
-            "name": "Todo",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Todos",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "provider": "iam",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
         "CheckIn": {
             "name": "CheckIn",
             "fields": {
@@ -898,7 +881,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "public",
+                                "allow": "private",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -1070,5 +1053,5 @@ export const schema = {
             }
         }
     },
-    "version": "f639ca8bc35cafb47069509a95cbe9db"
+    "version": "157c65afdf3f3d301ab7a8ff3a6ba2ee"
 };

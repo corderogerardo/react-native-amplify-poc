@@ -7,7 +7,7 @@ const UserType = {
   "OWNER": "owner"
 };
 
-const { Establishment, User, UserFollow, EstablishmentLike, Review, Todo, CheckIn, EstablishmentFollow, SearchableEstablishmentConnection, GPS } = initSchema(schema);
+const { Establishment, User, UserFollow, EstablishmentLike, Review, CheckIn, EstablishmentFollow, SearchableEstablishmentConnection, GPS } = initSchema(schema);
 
 export {
   Establishment,
@@ -15,7 +15,6 @@ export {
   UserFollow,
   EstablishmentLike,
   Review,
-  Todo,
   CheckIn,
   EstablishmentFollow,
   UserType,

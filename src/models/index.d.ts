@@ -38,10 +38,6 @@ type ReviewMetaData = {
   readOnlyFields: 'updatedAt';
 }
 
-type TodoMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type CheckInMetaData = {
   readOnlyFields: 'updatedAt';
 }
@@ -53,6 +49,7 @@ type EstablishmentFollowMetaData = {
 export declare class Establishment {
   readonly id: string;
   readonly ownerId: string;
+  readonly owner?: User;
   readonly name: string;
   readonly gps?: GPS;
   readonly street?: string;
@@ -65,6 +62,7 @@ export declare class Establishment {
   readonly placeID: string;
   readonly phoneNumber?: string;
   readonly likeCount?: number;
+  readonly reviews?: (Review | null)[];
   readonly userLikes?: (EstablishmentLike | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
@@ -81,6 +79,7 @@ export declare class User {
   readonly birthdate?: string;
   readonly gender?: string;
   readonly description?: string;
+  readonly ownerOf?: (Establishment | null)[];
   readonly createdAt?: string;
   readonly lastUpdated?: string;
   readonly profilePicture?: string;
@@ -130,16 +129,6 @@ export declare class Review {
   readonly updatedAt?: string;
   constructor(init: ModelInit<Review, ReviewMetaData>);
   static copyOf(source: Review, mutator: (draft: MutableModel<Review, ReviewMetaData>) => MutableModel<Review, ReviewMetaData> | void): Review;
-}
-
-export declare class Todo {
-  readonly id: string;
-  readonly name: string;
-  readonly description?: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Todo, TodoMetaData>);
-  static copyOf(source: Todo, mutator: (draft: MutableModel<Todo, TodoMetaData>) => MutableModel<Todo, TodoMetaData> | void): Todo;
 }
 
 export declare class CheckIn {

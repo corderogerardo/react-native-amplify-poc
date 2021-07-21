@@ -1,38 +1,16 @@
-type Todo @model @auth(rules: [{ allow: public, provider: iam }]) {
-  id: ID!
-  name: String!
-  description: String
-}
-
 type Establishment
   @model
   @auth(
     rules: [
       { allow: public, provider: iam }
-      {
-        allow: owner
-        ownerField: "ownerId"
-        identityClaim: "sub"
-        operations: [create, update, delete, read]
-      }
-      {
-        allow: groups
-        groups: ["admin"]
-        operations: [create, update, delete, read]
-      }
       { allow: private, provider: userPools }
     ]
   )
   @key(fields: ["ownerId", "id"])
-  @key(
-    name: "byId"
-    fields: ["ownerId", "id"]
-    queryField: "getEstablishmentsByUser"
-  )
   @searchable {
   id: ID!
   ownerId: ID!
-  owner: User @connection(fields: ["ownerId"])
+  owner: User @connection(fields: ["id"])
   name: String!
   gps: GPS
   street: String
@@ -52,7 +30,12 @@ type Establishment
 
 type EstablishmentLike
   @model(subscriptions: { level: public })
-  @auth(rules: [{ allow: public, provider: iam }])
+  @auth(
+    rules: [
+      { allow: public, provider: iam }
+      { allow: private, provider: userPools }
+    ]
+  )
   @key(fields: ["establishmentId", "createdAt"])
   @key(
     name: "establishmentLikesByUser"
@@ -71,7 +54,7 @@ type EstablishmentLike
 
 type CheckIn
   @model(subscriptions: { level: public })
-  @auth(rules: [{ allow: public, provider: iam }])
+  @auth(rules: [{ allow: private, provider: iam }])
   @key(fields: ["establishmentId", "createdAt"])
   @key(
     name: "userCheckinsCheckIn"
@@ -192,8 +175,8 @@ enum UserType {
 
 type Query {
   findEstablishments(
-    input: findEstablishmentsInput!
-  ): SearchableEstablishmentConnection
+    input: FindEstablishmentsInput!
+  ): SearchableEstablishmentConnection @aws_iam @aws_cognito_user_pools
 }
 
 type GPS {
@@ -211,7 +194,7 @@ input GPSQueryInput {
   radius: Float!
 }
 
-input findEstablishmentsInput {
+input FindEstablishmentsInput {
   byGPS: GPSQueryInput
   street: String
   city: String
@@ -225,7 +208,7 @@ input findEstablishmentsInput {
   from: Int
 }
 
-type SearchableEstablishmentConnection @aws_iam {
+type SearchableEstablishmentConnection @aws_iam @aws_cognito_user_pools {
   items: [Establishment]
   nextToken: String
   total: Int
